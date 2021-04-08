@@ -1,0 +1,508 @@
+<div class="header pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <h6 class="h2 text-dark d-inline-block mb-0">Sales & Distribution</h6>
+
+          <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+              <li class="breadcrumb-item">
+                <a href="javascript:void(0)">
+                  <i class="fas fa-chart-line text-dark"> </i>
+                </a>
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--6">
+  <div class="row">
+    <div class="col-xl-6">
+      <div class="card">
+        <div class="card-header bg-secondary">
+          <div class="row align-items-center">
+            <div class="col">
+              <h5 class="h3 mt-2 mb-0">Sales Per Month</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="chart">
+            <div class="amchart" id="chartsales1"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-6">
+      <div class="card">
+        <div class="card-header bg-secondary">
+          <div class="row align-items-center">
+            <div class="col">
+              <h5 class="h3 mt-2 mb-0">Sales Per Sale Channel</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="chart">
+            <div class="amchart" id="chartsales2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-6">
+      <div class="card">
+        <div class="card-header bg-secondary">
+          <div class="row align-items-center">
+            <div class="col">
+              <h5 class="h3 mt-2 mb-0">Sales Per State</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="chart">
+            <div class="amchart" id="chartsales3"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-6">
+      <div class="card">
+        <div class="card-header bg-secondary">
+          <div class="row align-items-center">
+            <div class="col">
+              <h5 class="h3 mt-2 mb-0">Sales Per Product Category</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="chart">
+            <div class="amchart" id="chartsales4"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-12">
+      <div class="card">
+        <div class="card-header bg-secondary">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <h5 class="h3 mt-2 mb-0">Search Sales Report</h5>
+            </div>
+            <!-- <div class="col-md-6 text-right">
+              <button
+                class="btn btn-default"
+                type="button"
+                (click)="openModal(createUser)"
+              >
+                Add New
+              </button>
+            </div> -->
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="row">
+            <div class="col-xl-4">
+              <div class="form-group">
+                <label for="exampleFormControlSelect2">Category</label>
+                <select class="form-control" id="exampleFormControlSelect2">
+                  <option selected>Choose</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="form-group">
+                <label for="exampleFormControlSelect2">Year</label>
+                <select class="form-control" id="exampleFormControlSelect2">
+                  <option selected>Choose</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="form-group">
+                <label for="exampleFormControlSelect2">Quarter</label>
+                <select class="form-control" id="exampleFormControlSelect2">
+                  <option selected>Choose</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-xl-12 text-right">
+              <button
+                class="btn btn-default"
+                type="button"
+                (click)="successSwal('searched')"
+              >
+                Search
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-12">
+      <div class="card">
+        <div class="card-header bg-secondary">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <h5 class="h3 mt-2 mb-0">Sales Report</h5>
+            </div>
+            <div class="col-md-6 text-right">
+              <button
+                class="btn btn-default"
+                type="button"
+                (click)="openModal(createUser)"
+              >
+                Add New
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="dataTables_wrapper py-4">
+            <div class="row">
+              <div class="col-sm-12 col-md-6">
+                <div class="dataTables_length" id="datatable_length">
+                  <label>
+                    Show
+                    <select
+                      name="datatable_length"
+                      aria-controls="datatable"
+                      class="form-control form-control-sm"
+                      (change)="entriesChange($event)"
+                    >
+                      <option value="5" [selected]="entries == 5">5</option>
+                      <option value="10" [selected]="entries == 10">10</option>
+                      <option value="15" [selected]="entries == 15">15</option>
+                      <option value="-1" [selected]="entries == -1">All</option>
+                    </select>
+                    entries
+                  </label>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <div id="datatable_filter" class="dataTables_filter">
+                  <label>
+                    <input
+                      type="search"
+                      class="form-control form-control-sm"
+                      placeholder="Search records"
+                      aria-controls="datatable"
+                      (keyup)="filterTable($event)"
+                    />
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <ngx-datatable
+              class="bootstrap selection-cell"
+              [columnMode]="'force'"
+              [headerHeight]="50"
+              [footerHeight]="50"
+              [rowHeight]="'auto'"
+              [limit]="entries != -1 ? entries : undefined"
+              [rows]="temp"
+              (activate)="onActivate($event)"
+            >
+              <ngx-datatable-column>
+                <ng-template ngx-datatable-header-template>
+                  <span>Category</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.category }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column>
+                <ng-template ngx-datatable-header-template>
+                  <span>Year</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.year }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column>
+                <ng-template ngx-datatable-header-template>
+                  <span>Quarter</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.category }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column>
+                <ng-template ngx-datatable-header-template>
+                  <span>Date of Reports</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.start }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column>
+                <ng-template ngx-datatable-header-template>
+                  <span>Status</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <span
+                    *ngIf="row.status == 'active'"
+                    class="badge badge-pill badge-success"
+                    >Approved</span
+                  >
+                  <span
+                    *ngIf="row.status == 'unactive'"
+                    class="badge badge-pill badge-warning"
+                    >Rejected</span
+                  >
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column>
+                <ng-template ngx-datatable-header-template>
+                  <span>Total (RM)</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.debit }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column>
+                <ng-template ngx-datatable-header-template>
+                  <span>Action</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <!-- <button class=" btn btn-icon btn-danger btn-sm" type="button" title="Action" (click)="openModal(viewAction)">
+                                      <span class=" btn-inner--icon"> <i class=" fas fa-file-pdf"> </i> </span>
+                                  </button> -->
+                  <button
+                    class="btn btn-icon btn-default btn-sm"
+                    type="button"
+                    title="Edit"
+                    (click)="openModal(createUser)"
+                  >
+                    <span class="btn-inner--icon">
+                      <i class="far fa-eye"> </i>
+                    </span>
+                  </button>
+                  <button
+                    class="btn btn-icon btn-danger btn-sm"
+                    type="button"
+                    title="Delete"
+                    (click)="delete()"
+                  >
+                    <span class="btn-inner--icon">
+                      <i class="fas fa-trash"> </i>
+                    </span>
+                  </button>
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #createUser>
+  <div class="modal-header bg-default">
+    <h6 class="modal-title text-white my-auto" id="modal-title-default">
+      Add Sales Report
+    </h6>
+
+    <button
+      aria-label="Close"
+      class="close"
+      data-dismiss="modal"
+      type="button"
+      (click)="modalRef.hide()"
+    >
+      <span aria-hidden="true" class="text-white my-auto"> × </span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <form>
+      <div class="row">
+        <div class="col-6">
+          <div class="mb-4">
+            <label for="companyname3">Company Name</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="eg MAJU"
+              id="companyname3"
+            />
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="mb-4">
+            <label for="category5">Category</label>
+            <select
+              class="form-select"
+              id="category5"
+              aria-label="Default select example"
+            >
+              <option selected>Choose</option>
+              <option value="1">Small</option>
+              <option value="2">Big</option>
+              <option value="3">Medium</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </form>
+    <form>
+      <div class="row">
+        <div class="col-4">
+          <div class="mb-4">
+            <label for="year2">Year</label>
+            <select
+              class="form-select"
+              id="year2"
+              aria-label="Default select example"
+            >
+              <option selected>Choose</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="mb-4">
+            <label for="quarter2">Quarter</label>
+            <select
+              class="form-select"
+              id="quarter2"
+              aria-label="Default select example"
+            >
+              <option selected>Choose</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="mb-4">
+            <label for="dateofreport">Date of Report</label>
+            <div class="input-group">
+              <span class="input-group-text"
+                ><span class="far fa-calendar-alt"></span
+              ></span>
+              <input
+                data-datepicker=""
+                class="form-control"
+                id="dateofreport"
+                type="text"
+                placeholder="Choose date"
+                required
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <form>
+      <div class="row">
+        <div class="col-6">
+          <div class="mb-4">
+            <label for="pic1">Person in Charge</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="eg Mrs Ilya"
+              id="pic1"
+            />
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="mb-4">
+            <fieldset>
+              <legend class="h6">Status</legend>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="exampleRadios"
+                  id="exampleRadios1"
+                  value="option1"
+                  checked
+                />
+                <label class="form-check-label" for="exampleRadios1">
+                  Approved
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="exampleRadios"
+                  id="exampleRadios2"
+                  value="option2"
+                />
+                <label class="form-check-label" for="exampleRadios2">
+                  Rejected
+                </label>
+              </div>
+              <!-- End of Radio -->
+            </fieldset>
+          </div>
+        </div>
+      </div>
+    </form>
+    <form>
+      <div class="row">
+        <div class="col-12">
+          <div class="mb-4">
+            <label for="textarea6">Remarks by Report Creator</label>
+            <textarea
+              class="form-control"
+              placeholder="Enter your message..."
+              id="textarea6"
+              rows="2"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn btn-success" type="button" (click)="successSwal(saved)">
+      Save
+    </button>
+
+    <button
+      class="btn btn-outline-danger ml-auto"
+      data-dismiss="modal"
+      type="button"
+      (click)="modalRef.hide()"
+    >
+      Close
+    </button>
+  </div>
+</ng-template>

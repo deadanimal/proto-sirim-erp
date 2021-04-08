@@ -1,0 +1,543 @@
+<div class="header pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <h6 class="h2 text-dark d-inline-block mb-0">Inventory Control</h6>
+
+          <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+              <li class="breadcrumb-item">
+                <a href="javascript:void(0)">
+                  <i class="fas fa-desktop text-dark"> </i>
+                </a>
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <div class="row justify-content-md-center">
+        <div class="col-sm-3 col-md-6 col-lg-4 mb-4">
+          <div class="card border-light shadow-sm">
+            <div class="card-body">
+              <div class="row d-block d-xl-flex align-items-center">
+                <div class="col-12 px-xl-0 text-center">
+                  <div class="d-none d-sm-block">
+                    <h2 class="h4">Inventory Turnover</h2>
+                    <h3 class="h3 text-info mb-1">17.0</h3>
+                  </div>
+
+                  <div class="small mt-2">Target: 13.0</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3 col-md-6 col-lg-4">
+          <div class="card border-light shadow-sm">
+            <div class="card-body">
+              <div class="row d-block d-xl-flex align-items-center">
+                <div class="col-12 px-xl-0 text-center">
+                  <div class="d-none d-sm-block">
+                    <h2 class="h4">Average OOS Rate</h2>
+                    <h3 class="h3 text-success mb-1">4.0%</h3>
+                  </div>
+
+                  <div class="small mt-2">Target: 2.0%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3 col-md-6 col-lg-4">
+          <div class="card border-light shadow-sm">
+            <div class="card-body">
+              <div class="row d-block d-xl-flex align-items-center">
+                <div class="col-12 px-xl-0 text-center">
+                  <div class="d-none d-sm-block">
+                    <h2 class="h4">Average OTIF Rate</h2>
+                    <h3 class="h3 text-danger mb-1">81.0%</h3>
+                  </div>
+
+                  <div class="small mt-2">Target: 90.0%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--6">
+  <div class="row">
+    <div class="col-xl-6">
+      <div class="card">
+        <div class="card-header bg-secondary">
+          <div class="row align-items-center">
+            <div class="col">
+              <h5 class="h3 mt-2 mb-0">
+                Average Inventory Value by Product Category
+              </h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="chart">
+            <div class="amchart" id="chartiventory1"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-6">
+      <div class="card">
+        <div class="card-header bg-secondary">
+          <div class="row align-items-center">
+            <div class="col">
+              <h5 class="h3 mt-2 mb-0">Products Sold within Freshness Date</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="chart">
+            <div class="amchart" id="chartiventory2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-12">
+      <div class="card">
+        <div class="card-header bg-secondary">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <h5 class="h3 mt-2 mb-0">Sales Order</h5>
+            </div>
+            <!-- <div class="col-md-6 text-right">
+              <button
+                class="btn btn-default"
+                type="button"
+                (click)="openModal(createUser)"
+              >
+                Add New
+              </button>
+            </div> -->
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-centered table-nowrap mb-0 rounded">
+              <thead class="thead-light">
+                <tr>
+                  <th>CHANNEL</th>
+                  <th>DRAFT</th>
+                  <th>CONFIRMED</th>
+                  <th>PACKED</th>
+                  <th>SHIPPED</th>
+                  <th>INVOICED</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Item -->
+                <tr>
+                  <td>Others</td>
+                  <td>0</td>
+                  <td>42</td>
+                  <td>5</td>
+                  <td>27</td>
+                  <td>75</td>
+                </tr>
+                <!-- Item -->
+                <tr>
+                  <td>Etsy</td>
+                  <td>0</td>
+                  <td>3</td>
+                  <td>0</td>
+                  <td>6</td>
+                  <td>6</td>
+                </tr>
+                <!-- Item -->
+                <tr>
+                  <td>Shopify</td>
+                  <td>0</td>
+                  <td>12</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>2</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-12">
+      <div class="card">
+        <div class="card-header bg-secondary">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <h5 class="h3 mt-2 mb-0">Search Physical Inventory</h5>
+            </div>
+            <!-- <div class="col-md-6 text-right">
+                <button
+                  class="btn btn-default"
+                  type="button"
+                  (click)="openModal(createUser)"
+                >
+                  Add New
+                </button>
+              </div> -->
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="row">
+            <div class="col-xl-4">
+              <div class="form-group">
+                <label for="exampleFormControlSelect2">Category</label>
+                <select class="form-control" id="exampleFormControlSelect2">
+                  <option selected>Choose</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="form-group">
+                <label for="exampleFormControlSelect2">Batch</label>
+                <select class="form-control" id="exampleFormControlSelect2">
+                  <option selected>Choose</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="form-group">
+                <label for="exampleFormControlSelect2">Status</label>
+                <select class="form-control" id="exampleFormControlSelect2">
+                  <option selected>Choose</option>
+                  <option value="1">Available</option>
+                  <option value="2">In Production</option>
+                  <option value="3">Diminished</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-xl-12 text-right">
+              <button
+                class="btn btn-default"
+                type="button"
+                (click)="successSwal('searched')"
+              >
+                Search
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-12">
+      <div class="card">
+        <div class="card-header bg-secondary">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <h5 class="h3 mt-2 mb-0">Physical Inventory</h5>
+            </div>
+            <div class="col-md-6 text-right">
+              <button
+                class="btn btn-default"
+                type="button"
+                (click)="openModal(createUser)"
+              >
+                Add New
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="dataTables_wrapper py-4">
+            <div class="row">
+              <div class="col-sm-12 col-md-6">
+                <div class="dataTables_length" id="datatable_length">
+                  <label>
+                    Show
+                    <select
+                      name="datatable_length"
+                      aria-controls="datatable"
+                      class="form-control form-control-sm"
+                      (change)="entriesChange($event)"
+                    >
+                      <option value="5" [selected]="entries == 5">5</option>
+                      <option value="10" [selected]="entries == 10">10</option>
+                      <option value="15" [selected]="entries == 15">15</option>
+                      <option value="-1" [selected]="entries == -1">All</option>
+                    </select>
+                    entries
+                  </label>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <div id="datatable_filter" class="dataTables_filter">
+                  <label>
+                    <input
+                      type="search"
+                      class="form-control form-control-sm"
+                      placeholder="Search records"
+                      aria-controls="datatable"
+                      (keyup)="filterTable($event)"
+                    />
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <ngx-datatable
+              class="bootstrap selection-cell"
+              [columnMode]="'force'"
+              [headerHeight]="50"
+              [footerHeight]="50"
+              [rowHeight]="'auto'"
+              [limit]="entries != -1 ? entries : undefined"
+              [rows]="temp"
+              (activate)="onActivate($event)"
+            >
+              <ngx-datatable-column>
+                <ng-template ngx-datatable-header-template>
+                  <span>Category</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.category }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column>
+                <ng-template ngx-datatable-header-template>
+                  <span>Batch</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.category }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column>
+                <ng-template ngx-datatable-header-template>
+                  <span>Location</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.location }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column>
+                <ng-template ngx-datatable-header-template>
+                  <span>Date Created</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.start }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column>
+                <ng-template ngx-datatable-header-template>
+                  <span>Quantity</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.start }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column>
+                <ng-template ngx-datatable-header-template>
+                  <span>Status</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <span
+                    *ngIf="row.status == 'active'"
+                    class="badge badge-pill badge-success"
+                    >Available</span
+                  >
+                  <span
+                    *ngIf="row.status == 'inproduction'"
+                    class="badge badge-pill badge-primary"
+                    >In Production</span
+                  >
+                  <span
+                    *ngIf="row.status == 'unactive'"
+                    class="badge badge-pill badge-danger"
+                    >Diminished</span
+                  >
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column>
+                <ng-template ngx-datatable-header-template>
+                  <span>Action</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <!-- <button class=" btn btn-icon btn-danger btn-sm" type="button" title="Action" (click)="openModal(viewAction)">
+                                        <span class=" btn-inner--icon"> <i class=" fas fa-file-pdf"> </i> </span>
+                                    </button> -->
+                  <button
+                    class="btn btn-icon btn-default btn-sm"
+                    type="button"
+                    title="Edit"
+                    (click)="openModal(createUser)"
+                  >
+                    <span class="btn-inner--icon">
+                      <i class="far fa-eye"> </i>
+                    </span>
+                  </button>
+                  <button
+                    class="btn btn-icon btn-danger btn-sm"
+                    type="button"
+                    title="Delete"
+                    (click)="delete()"
+                  >
+                    <span class="btn-inner--icon">
+                      <i class="fas fa-trash"> </i>
+                    </span>
+                  </button>
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #createUser>
+  <div class="modal-header bg-default">
+    <h6 class="modal-title text-white my-auto" id="modal-title-default">
+      Edit List of Account
+    </h6>
+
+    <button
+      aria-label="Close"
+      class="close"
+      data-dismiss="modal"
+      type="button"
+      (click)="modalRef.hide()"
+    >
+      <span aria-hidden="true" class="text-white my-auto"> × </span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <form>
+      <div class="row">
+        <div class="col-6">
+          <div class="mb-4">
+            <label for="exampleProgramID">Program ID</label>
+            <input
+              type="total"
+              class="form-control"
+              id="exampleTotal"
+              placeholder="eg PRG-CS-240"
+            />
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="mb-4">
+            <label for="exampleName">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="eg Short Term Program"
+              id="exampleName"
+            />
+          </div>
+        </div>
+      </div>
+    </form>
+    <form>
+      <div class="row">
+        <div class="col-6">
+          <div class="mb-4">
+            <label class="my-1 mr-2" for="type1">Type</label>
+            <select
+              class="form-select"
+              id="type2"
+              aria-label="Default select example"
+            >
+              <option selected>Choose</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="mb-4">
+            <p class="font-weight-bold">Status</p>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="exampleRadios3"
+                id="exampleRadios3"
+                value="option3"
+                checked
+              />
+              <label class="form-check-label" for="exampleRadios3">
+                Active
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="exampleRadios4"
+                id="exampleRadios4"
+                value="option4"
+                checked
+              />
+              <label class="form-check-label" for="exampleRadios4">
+                Inactive
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <form>
+      <div class="row">
+        <div class="col-12">
+          <div class="mb-4">
+            <label for="textarea2">Description</label>
+            <textarea
+              class="form-control"
+              placeholder="Enter your message..."
+              id="textarea2"
+              rows="2"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn btn-success" type="button" (click)="confirm()">
+      Save
+    </button>
+
+    <button
+      class="btn btn-outline-danger ml-auto"
+      data-dismiss="modal"
+      type="button"
+      (click)="modalRef.hide()"
+    >
+      Close
+    </button>
+  </div>
+</ng-template>

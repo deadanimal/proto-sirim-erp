@@ -1,0 +1,396 @@
+<div class="header pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <h6 class="h2 text-dark d-inline-block mb-0">Petty Cash</h6>
+
+          <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+              <li class="breadcrumb-item">
+                <a href="javascript:void(0)">
+                  <i class="fas fa-money-bill text-dark"> </i>
+                </a>
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--6">
+  <div class="row">
+    <div class="col-xl-6">
+      <div class="card">
+        <div class="card-header bg-secondary">
+          <div class="row align-items-center">
+            <div class="col">
+              <h5 class="h3 mt-2 mb-0">Petty Cash</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="chart">
+            <div class="amchart" id="chartpettycash1"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-6">
+      <div class="card">
+        <div class="card-header bg-secondary">
+          <div class="row align-items-center">
+            <div class="col">
+              <h5 class="h3 mt-2 mb-0">Petty Cash Distribution</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="chart">
+            <div class="amchart" id="chartpettycash2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-12">
+      <div class="card">
+        <div class="card-header bg-secondary">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <h5 class="h3 mt-2 mb-0">List of Account</h5>
+            </div>
+            <div class="col-md-6 text-right">
+              <button
+                class="btn btn-success"
+                type="button"
+                (click)="openModal(createUser)"
+              >
+                Export
+              </button>
+              <button
+                class="btn btn-primary"
+                type="button"
+                (click)="openModal(createUser)"
+              >
+                Upload
+              </button>
+              <button
+                class="btn btn-default"
+                type="button"
+                (click)="openModal(createUser)"
+              >
+                Add New
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="row">
+            <div class="col-xl-3">
+              <div class="form-group">
+                <label for="example-date-input" class="form-control-label"
+                  >Date</label
+                >
+                <input
+                  class="form-control"
+                  type="date"
+                  placeholder="2021-01-01"
+                  id="example-date-input"
+                />
+              </div>
+            </div>
+
+            <div class="col-xl-3">
+              <div class="form-group">
+                <label for="exampleFormControlSelect2">Shown by</label>
+                <select class="form-control" id="exampleFormControlSelect2">
+                  <option selected>Choose</option>
+                  <option value="1">Date</option>
+                  <option value="2">Final Date</option>
+                  <option value="3">Brand</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-xl-3">
+              <div class="form-group">
+                <label for="exampleFormControlSelect2">Sort by</label>
+                <select class="form-control" id="exampleFormControlSelect2">
+                  <option selected>Choose</option>
+                  <option value="1">Type</option>
+                  <option value="2">Status</option>
+                  <option value="3">Name</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-xl-3">
+              <div class="form-group">
+                <label for="exampleFormControlSelect2">Receive by</label>
+                <select class="form-control" id="exampleFormControlSelect2">
+                  <option selected>Choose</option>
+                  <option value="1">Type</option>
+                  <option value="2">Status</option>
+                  <option value="3">Name</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-xl-12 text-right">
+              <button
+                class="btn btn-default"
+                type="button"
+                (click)="successSwal('searched')"
+              >
+                Search
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-12">
+      <div class="card">
+        <div class="card-header bg-secondary">
+          <div class="row align-items-center">
+            <div class="col">
+              <h5 class="h3 mt-2 mb-0">List View of Petty Cash Transaction</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="dataTables_wrapper py-4">
+            <div class="row">
+              <div class="col-sm-12 col-md-6">
+                <div class="dataTables_length" id="datatable_length">
+                  <label>
+                    Show
+                    <select
+                      name="datatable_length"
+                      aria-controls="datatable"
+                      class="form-control form-control-sm"
+                      (change)="entriesChange($event)"
+                    >
+                      <option value="5" [selected]="entries == 5">5</option>
+                      <option value="10" [selected]="entries == 10">10</option>
+                      <option value="15" [selected]="entries == 15">15</option>
+                      <option value="-1" [selected]="entries == -1">All</option>
+                    </select>
+                    entries
+                  </label>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <div id="datatable_filter" class="dataTables_filter">
+                  <label>
+                    <input
+                      type="search"
+                      class="form-control form-control-sm"
+                      placeholder="Search records"
+                      aria-controls="datatable"
+                      (keyup)="filterTable($event)"
+                    />
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <ngx-datatable
+              class="bootstrap selection-cell"
+              [columnMode]="'force'"
+              [headerHeight]="50"
+              [footerHeight]="50"
+              [rowHeight]="'auto'"
+              [limit]="entries != -1 ? entries : undefined"
+              [rows]="temp"
+              (activate)="onActivate($event)"
+            >
+              <ngx-datatable-column>
+                <ng-template ngx-datatable-header-template>
+                  <span>Type</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.type }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column>
+                <ng-template ngx-datatable-header-template>
+                  <span>Date</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.start }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column>
+                <ng-template ngx-datatable-header-template>
+                  <span>Processed by</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.status }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column>
+                <ng-template ngx-datatable-header-template>
+                  <span>Register</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.reg }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column>
+                <ng-template ngx-datatable-header-template>
+                  <span>Description</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.desc }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column>
+                <ng-template ngx-datatable-header-template>
+                  <span>Amount (RM)</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.netMove }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column>
+                <ng-template ngx-datatable-header-template>
+                  <span>Action</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <!-- <button class=" btn btn-icon btn-danger btn-sm" type="button" title="Action" (click)="openModal(viewAction)">
+                                <span class=" btn-inner--icon"> <i class=" fas fa-file-pdf"> </i> </span>
+                            </button> -->
+                  <button
+                    class="btn btn-icon btn-default btn-sm"
+                    type="button"
+                    title="Edit"
+                    (click)="openModal(createUser)"
+                  >
+                    <span class="btn-inner--icon">
+                      <i class="far fa-eye"> </i>
+                    </span>
+                  </button>
+                  <button
+                    class="btn btn-icon btn-danger btn-sm"
+                    type="button"
+                    title="Delete"
+                    (click)="delete()"
+                  >
+                    <span class="btn-inner--icon">
+                      <i class="fas fa-trash"> </i>
+                    </span>
+                  </button>
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #createUser>
+  <div class="modal-header bg-default">
+    <h6 class="modal-title text-white my-auto" id="modal-title-default">
+      Add Petty Cash Transaction
+    </h6>
+
+    <button
+      aria-label="Close"
+      class="close"
+      data-dismiss="modal"
+      type="button"
+      (click)="modalRef.hide()"
+    >
+      <span aria-hidden="true" class="text-white my-auto"> × </span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <form>
+      <div class="row">
+        <div class="col-6">
+          <div class="mb-4">
+            <label for="type3">Type</label>
+            <select
+              class="form-select"
+              id="type3"
+              aria-label="Default select example"
+            >
+              <option selected>Choose</option>
+              <option value="1">Cash In</option>
+              <option value="2">Cash Out</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="mb-4">
+            <label for="amount2">Amount</label>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="eg 123.34"
+              id="amount2"
+            />
+          </div>
+        </div>
+      </div>
+    </form>
+    <form>
+      <div class="row">
+        <div class="col-6">
+          <div class="mb-4">
+            <label for="register2">Register</label>
+            <select
+              class="form-select"
+              id="register2"
+              aria-label="Default select example"
+            >
+              <option selected>Choose</option>
+              <option value="1">Register 1</option>
+              <option value="2">Register 2</option>
+              <option value="3">Register 3</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="mb-4">
+            <label for="textarea6">Description</label>
+            <textarea
+              class="form-control"
+              placeholder="Enter your message..."
+              id="textarea6"
+              rows="1"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn btn-success" type="button" (click)="successSwal(saved)">
+      Save
+    </button>
+
+    <button
+      class="btn btn-outline-danger ml-auto"
+      data-dismiss="modal"
+      type="button"
+      (click)="modalRef.hide()"
+    >
+      Close
+    </button>
+  </div>
+</ng-template>

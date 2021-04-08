@@ -1,0 +1,478 @@
+<div class="header pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <h6 class="h2 text-dark d-inline-block mb-0">Analysis</h6>
+
+          <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+              <li class="breadcrumb-item">
+                <a href="javascript:void(0)">
+                  <i class="fas fa-handshake text-dark"> </i>
+                </a>
+              </li>
+              <li class="breadcrumb-item">
+                <a href="javascript:void(0)" class="text-dark"> Procurement </a>
+              </li>
+              <li aria-current="page" class="breadcrumb-item active">
+                Analysis
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <div class="row justify-content-md-center">
+        <div class="col-sm-3 col-md-6 col-lg-4 mb-4">
+          <div class="card border-light shadow-sm">
+            <div class="card-body">
+              <div class="row d-block d-xl-flex align-items-center">
+                <div class="col-12 px-xl-0 text-center">
+                  <div class="d-none d-sm-block">
+                    <h2 class="h4">Total of Procurement</h2>
+                    <h3 class="h3 mb-1">RM1276.09</h3>
+                  </div>
+
+                  <div class="small mt-2">
+                    <span class="fas fa-angle-up text-success"></span>
+                    <span class="text-success font-weight-bold">41.2%</span>
+                    Since last month
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3 col-md-6 col-lg-4">
+          <div class="card border-light shadow-sm">
+            <div class="card-body">
+              <div class="row d-block d-xl-flex align-items-center">
+                <div class="col-12 px-xl-0 text-center">
+                  <div class="d-none d-sm-block">
+                    <h2 class="h4">Approved Procurement</h2>
+                    <h3 class="h3 mb-1">RM987.23</h3>
+                  </div>
+
+                  <div class="small mt-2">
+                    <span class="fas fa-angle-up text-success"></span>
+                    <span class="text-success font-weight-bold">41.1%</span>
+                    Since last month
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3 col-md-6 col-lg-4">
+          <div class="card border-light shadow-sm">
+            <div class="card-body">
+              <div class="row d-block d-xl-flex align-items-center">
+                <div class="col-12 px-xl-0 text-center">
+                  <div class="d-none d-sm-block">
+                    <h2 class="h4">Rejected Procurement</h2>
+                    <h3 class="h3 mb-1">RM182.98</h3>
+                  </div>
+
+                  <div class="small mt-2">
+                    <span class="fas fa-angle-up text-success"></span>
+                    <span class="text-success font-weight-bold">11.11%</span>
+                    Since last month
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--6">
+  <div class="row">
+    <div class="col-xl-12">
+      <div class="card">
+        <div class="card-header bg-secondary">
+          <div class="row align-items-center">
+            <div class="col">
+              <h5 class="h3 mt-2 mb-0">Procurement Amount Distribution</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="chart">
+            <div class="amchart" id="chartanalysis1"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-12">
+      <div class="card">
+        <div class="card-header bg-secondary">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <h5 class="h3 mt-2 mb-0">List of Budgetary Reports</h5>
+            </div>
+            <div class="col-md-6 text-right">
+              <button
+                class="btn btn-default"
+                type="button"
+                (click)="openModal(createUser)"
+              >
+                Add New
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="row">
+            <div class="col-xl-12">
+              <div class="form-group">
+                <label for="exampleFormControlSelect2"
+                  >Search Procurement</label
+                >
+                <select class="form-control" id="exampleFormControlSelect2">
+                  <option selected>Choose</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-xl-12 text-right">
+              <button
+                class="btn btn-default"
+                type="button"
+                (click)="successSwal('searched')"
+              >
+                Search
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-12">
+      <div class="card">
+        <div class="card-header bg-secondary">
+          <div class="row align-items-center">
+            <div class="col">
+              <h5 class="h3 mt-2 mb-0">List of Fixed Assets</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="dataTables_wrapper py-4">
+            <div class="row">
+              <div class="col-sm-12 col-md-6">
+                <div class="dataTables_length" id="datatable_length">
+                  <label>
+                    Show
+                    <select
+                      name="datatable_length"
+                      aria-controls="datatable"
+                      class="form-control form-control-sm"
+                      (change)="entriesChange($event)"
+                    >
+                      <option value="5" [selected]="entries == 5">5</option>
+                      <option value="10" [selected]="entries == 10">10</option>
+                      <option value="15" [selected]="entries == 15">15</option>
+                      <option value="-1" [selected]="entries == -1">All</option>
+                    </select>
+                    entries
+                  </label>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <div id="datatable_filter" class="dataTables_filter">
+                  <label>
+                    <input
+                      type="search"
+                      class="form-control form-control-sm"
+                      placeholder="Search records"
+                      aria-controls="datatable"
+                      (keyup)="filterTable($event)"
+                    />
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <ngx-datatable
+              class="bootstrap selection-cell"
+              [columnMode]="'force'"
+              [headerHeight]="50"
+              [footerHeight]="50"
+              [rowHeight]="'auto'"
+              [limit]="entries != -1 ? entries : undefined"
+              [rows]="temp"
+              (activate)="onActivate($event)"
+            >
+              <ngx-datatable-column>
+                <ng-template ngx-datatable-header-template>
+                  <span>Proccurement ID</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.accNo }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column>
+                <ng-template ngx-datatable-header-template>
+                  <span>Title</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.title }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column>
+                <ng-template ngx-datatable-header-template>
+                  <span>Date</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.start }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column>
+                <ng-template ngx-datatable-header-template>
+                  <span>Status</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <span
+                    *ngIf="row.status == 'active'"
+                    class="badge badge-pill badge-success"
+                    >Approved</span
+                  >
+                  <span
+                    *ngIf="row.status == 'unactive'"
+                    class="badge badge-pill badge-warning"
+                    >Rejected</span
+                  >
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column>
+                <ng-template ngx-datatable-header-template>
+                  <span>Action</span>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <!-- <button class=" btn btn-icon btn-danger btn-sm" type="button" title="Action" (click)="openModal(viewAction)">
+                                    <span class=" btn-inner--icon"> <i class=" fas fa-file-pdf"> </i> </span>
+                                </button> -->
+                  <button
+                    class="btn btn-icon btn-default btn-sm"
+                    type="button"
+                    title="Edit"
+                    (click)="openModal(createUser)"
+                  >
+                    <span class="btn-inner--icon">
+                      <i class="far fa-eye"> </i>
+                    </span>
+                  </button>
+                  <button
+                    class="btn btn-icon btn-danger btn-sm"
+                    type="button"
+                    title="Delete"
+                    (click)="delete()"
+                  >
+                    <span class="btn-inner--icon">
+                      <i class="fas fa-trash"> </i>
+                    </span>
+                  </button>
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #createUser>
+  <div class="modal-header bg-default">
+    <h6 class="modal-title text-white my-auto" id="modal-title-default">
+      Add Procurement
+    </h6>
+
+    <button
+      aria-label="Close"
+      class="close"
+      data-dismiss="modal"
+      type="button"
+      (click)="modalRef.hide()"
+    >
+      <span aria-hidden="true" class="text-white my-auto"> × </span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <form>
+      <div class="row">
+        <div class="col-6">
+          <div class="mb-4">
+            <label for="procurementid">Procurement ID</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="eg RB-CS-240"
+              id="procurementid"
+            />
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="mb-4">
+            <label for="title2">Title</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="eg Otter"
+              id="title2"
+            />
+          </div>
+        </div>
+      </div>
+    </form>
+    <form>
+      <div class="row">
+        <div class="col-6">
+          <div class="mb-4">
+            <label for="data1">Data 1</label>
+            <div class="form-file mb-3">
+              <input type="file" class="form-file-input" id="customFile1" />
+              <label class="form-file-label" for="customFile1">
+                <span class="form-file-text">Choose file...</span>
+                <span class="form-file-button">Browse</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="mb-4">
+            <label for="data2">Data 2</label>
+            <div class="form-file mb-3">
+              <input type="file" class="form-file-input" id="customFile2" />
+              <label class="form-file-label" for="customFile2">
+                <span class="form-file-text">Choose file...</span>
+                <span class="form-file-button">Browse</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <form>
+      <div class="row">
+        <div class="col-6">
+          <div class="mb-4">
+            <label for="data3">Data 3</label>
+            <div class="form-file mb-3">
+              <input type="file" class="form-file-input" id="customFile3" />
+              <label class="form-file-label" for="customFile3">
+                <span class="form-file-text">Choose file...</span>
+                <span class="form-file-button">Browse</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="mb-4">
+            <label for="data4">Data 4</label>
+            <div class="form-file mb-3">
+              <input type="file" class="form-file-input" id="customFile4" />
+              <label class="form-file-label" for="customFile4">
+                <span class="form-file-text">Choose file...</span>
+                <span class="form-file-button">Browse</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <form>
+      <div class="row">
+        <div class="col-12">
+          <div class="mb-4">
+            <label for="data5">Data 5</label>
+            <div class="form-file mb-3">
+              <input type="file" class="form-file-input" id="customFile5" />
+              <label class="form-file-label" for="customFile5">
+                <span class="form-file-text">Choose file...</span>
+                <span class="form-file-button">Browse</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <p>Procurement Process</p>
+    <form>
+      <div class="row">
+        <div class="col-6">
+          <div class="mb-4">
+            <fieldset>
+              <legend class="h6">Status</legend>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="exampleRadios"
+                  id="exampleRadios1"
+                  value="option1"
+                  checked
+                />
+                <label class="form-check-label" for="exampleRadios1">
+                  Approved
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="exampleRadios"
+                  id="exampleRadios2"
+                  value="option2"
+                />
+                <label class="form-check-label" for="exampleRadios2">
+                  Rejected
+                </label>
+              </div>
+              <!-- End of Radio -->
+            </fieldset>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="mb-4">
+            <label for="textarea5">Note</label>
+            <textarea
+              class="form-control"
+              placeholder="Enter your message..."
+              id="textarea5"
+              rows="2"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn btn-success" type="button" (click)="successSwal(saved)">
+      Save
+    </button>
+
+    <button
+      class="btn btn-outline-danger ml-auto"
+      data-dismiss="modal"
+      type="button"
+      (click)="modalRef.hide()"
+    >
+      Close
+    </button>
+  </div>
+</ng-template>
